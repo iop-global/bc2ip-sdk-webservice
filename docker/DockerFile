@@ -1,0 +1,15 @@
+FROM node:14-alpine
+
+RUN apk add --update git python3 make g++
+RUN mkdir /root/app
+WORKDIR /root/app/
+
+COPY ./ ./
+RUN rm -rf node_modules
+RUN rm -rf dist
+RUN npm ci && npm run build
+
+COPY docker/docker-entrypoint.sh /usr/local/bin/
+RUN ln -s usr/local/bin/docker-entrypoint.sh / # backwards compat
+
+ENTRYPOINT ["docker-entrypoint.sh"]
