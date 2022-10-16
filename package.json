@@ -1,7 +1,7 @@
 {
   "name": "sdk-webservice",
   "version": "1.0.1",
-  "nextVersion": "1.0.1",
+  "nextVersion": "1.0.2",
   "nextVersionIncrement": "patch",
   "description": "",
   "main": "index.js",
